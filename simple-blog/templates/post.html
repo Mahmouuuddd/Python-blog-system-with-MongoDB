@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ post.title }}</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; }
+        .post { border: 1px solid #ddd; padding: 20px; border-radius: 5px; }
+        .comment { background: #f9f9f9; padding: 10px; margin: 10px 0; border-left: 3px solid #007bff; }
+        form { background: #f5f5f5; padding: 20px; border-radius: 5px; margin: 20px 0; }
+        input, textarea { width: 100%; padding: 8px; margin: 5px 0; box-sizing: border-box; }
+        button { background: #007bff; color: white; padding: 10px 20px; border: none; cursor: pointer; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <a href="/">← Back to all posts</a>
+   
+    <div class="post">
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.content }}</p>
+        <small>By {{ post.author }} | {{ post.created_at.strftime('%Y-%m-%d %H:%M') }}</small>
+    </div>
+   
+    <h2>Comments ({{ post.comments|length }})</h2>
+    {% for comment in post.comments %}
+    <div class="comment">
+        <strong>{{ comment.username }}</strong>: {{ comment.text }}
+        <br><small>{{ comment.created_at.strftime('%Y-%m-%d %H:%M') }}</small>
+    </div>
+    {% endfor %}
+   
+    <h3>Add a Comment</h3>
+    <form action="/add_comment/{{ post._id }}" method="POST">
+        <input type="text" name="username" placeholder="Your name" required>
+        <textarea name="comment" placeholder="Write your comment..." rows="3" required></textarea>
+        <button type="submit">Comment</button>
+    </form>
+</body>
+</html>
