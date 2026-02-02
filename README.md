@@ -9,6 +9,20 @@ A simple blog application built with Flask and MongoDB.
 - View post count per author
 - MongoDB database storage
 
+## 🗂️ Project Structure
+```
+Python-blog-system-with-MongoDB/
+├── simple-blog/
+│   ├── app.py                # App implementation 
+|    ├── templates/
+|       ├── home.html                  # Front-end of the Page
+|       └── post.html                  # Front-end of the Post
+├── .gitignore
+├── LICENSE
+└── README.md
+```
+
+
 ## Installation
 
 1. Install dependencies:
