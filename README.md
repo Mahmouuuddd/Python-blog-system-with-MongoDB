@@ -14,7 +14,7 @@ A simple blog application built with Flask and MongoDB.
 Python-blog-system-with-MongoDB/
 ├── simple-blog/
 │   ├── app.py                # App implementation 
-|    ├── templates/
+|   ├── templates/
 |       ├── home.html                  # Front-end of the Page
 |       └── post.html                  # Front-end of the Post
 ├── .gitignore
